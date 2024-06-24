@@ -1,6 +1,9 @@
+import { Server } from "http";
 import app from "./app";
 import config from "./app/config";
 import mongoose from "mongoose";
+
+let server: Server;
 
 async function main() {
   try {
@@ -15,3 +18,5 @@ async function main() {
 }
 
 main();
+
+
