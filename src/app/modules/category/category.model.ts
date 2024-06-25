@@ -9,7 +9,7 @@ const categorySchema = new Schema<TCategory>(
     },
     icon: {
       type: String,
-      optional: true,
+      required: true,
     },
     description: {
       type: String,

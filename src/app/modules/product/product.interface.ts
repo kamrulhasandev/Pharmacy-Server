@@ -12,7 +12,6 @@ export interface TProduct {
   stock: number;
   image?: string;
   expirationDate: string;
-  sideEffects?: string[];
   usageInstructions?: string;
   status: "active" | "inactive";
   createdAt: Date;

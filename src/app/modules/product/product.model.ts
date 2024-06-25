@@ -45,10 +45,6 @@ const productSchema = new Schema<TProduct>(
       type: String,
       required: true,
     },    
-    sideEffects: {
-      type: [String],
-      optional: true,
-    },
     usageInstructions: {
       type: String,
       optional: true,

@@ -2,11 +2,10 @@ import express from "express";
 import validateRequest from "../../middlewares/validateRequest";
 import { productController } from "./product.controller";
 import { productValidationSchema } from "./product.validation";
-import { verifyToken } from "../../middlewares/auth";
 
 const router = express.Router();
 
-router.get("/", verifyToken, productController.getAllProducts);
+router.get("/", productController.getAllProducts);
 
 router.get("/:id", productController.getSingleProduct);
 
