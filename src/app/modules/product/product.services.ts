@@ -16,8 +16,16 @@ const getSingleProduct = async (id: string) => {
   return product;
 };
 
+const editProduct = async (id: string, product: TProduct) => {
+  const updatedProduct = await Product.findByIdAndUpdate(id, product, {
+    new: true,
+  });
+  return updatedProduct;
+};
+
 export const productServices = {
   createProduct,
   getAllProducts,
   getSingleProduct,
+  editProduct,
 };

@@ -34,8 +34,21 @@ const getSingleProduct = catchAsync(async (req: any, res: any) => {
   });
 });
 
+const editProduct = catchAsync(async (req: any, res: any) => {
+  const id = req.params.id;
+  const product = req.body;
+  const result = await productServices.editProduct(id, product);
+  res.status(200).json({
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Product updated successfully",
+    data: result,
+  });
+});
+
 export const productController = {
   createProduct,
   getAllProducts,
   getSingleProduct,
+  editProduct,
 };
