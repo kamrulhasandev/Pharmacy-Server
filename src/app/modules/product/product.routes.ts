@@ -2,10 +2,11 @@ import express from "express";
 import validateRequest from "../../middlewares/validateRequest";
 import { productController } from "./product.controller";
 import { productValidationSchema } from "./product.validation";
+import { verifyAdmin, verifyToken } from "../../middlewares/auth";
 
 const router = express.Router();
 
-router.get("/", productController.getAllProducts);
+router.get("/",  productController.getAllProducts);
 
 router.get("/:id", productController.getSingleProduct);
 
@@ -20,5 +21,7 @@ router.post(
   validateRequest(productValidationSchema.productValidation),
   productController.createProduct
 );
+
+router.delete("/delete-product/:id", productController.deleteProduct);
 
 export const productRoutes = router;
