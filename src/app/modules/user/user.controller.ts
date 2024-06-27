@@ -25,4 +25,15 @@ const getAdmin = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const userController = { saveUser, getAdmin };
+const getSingleUser = catchAsync(async (req: Request, res: Response) => {
+  const email = req.params.email;
+  const result = await userServices.getSingleUser(email);
+  res.status(200).json({
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "User fetched successfully",
+    data: result,
+  });
+});
+
+export const userController = { saveUser, getAdmin, getSingleUser };

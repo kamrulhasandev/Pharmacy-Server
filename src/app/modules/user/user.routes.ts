@@ -5,6 +5,8 @@ import userValidation from "./user.validation";
 
 const router = express.Router();
 
+router.get("/:email", userController.getSingleUser);
+
 router.get("/get-admin/:email", userController.getAdmin);
 
 router.post(

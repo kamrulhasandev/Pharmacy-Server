@@ -22,4 +22,9 @@ const getAdmin = async (email: string) => {
   return { admin };
 };
 
-export const userServices = { saveUser, getAdmin };
+const getSingleUser = async (email: string) => {
+  const user = await User.findOne({ email });
+  return user;
+};
+
+export const userServices = { saveUser, getAdmin, getSingleUser };
