@@ -73,7 +73,7 @@ const getSales = async (date: any) => {
     return sales;
   } catch (error: any) {
     console.error("Error fetching sales:", error.message);
-    throw error; // Rethrow the error to handle it further up in your code
+    throw error; 
   }
 };
 
