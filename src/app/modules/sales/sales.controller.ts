@@ -24,4 +24,15 @@ const getSales = catchAsync(async (req: any, res: any) => {
   });
 });
 
-export const salesController = { addSales, getSales };
+const getSpecficUserSales = catchAsync(async (req: any, res: any) => {
+  const userId = req.params.userId;
+  const result = await salesServices.getSpecficUserSales(userId);
+  res.status(200).json({
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Sales fetched successfully",
+    data: result,
+  });
+});
+
+export const salesController = { addSales, getSales, getSpecficUserSales };

@@ -73,9 +73,21 @@ const getSales = async (date: any) => {
     return sales;
   } catch (error: any) {
     console.error("Error fetching sales:", error.message);
-    throw error; 
+    throw error;
   }
 };
 
+const getSpecficUserSales = async (userId: string) => {
+  try {
+    const sales = await Sale.find({ user: userId }).populate(
+      "product",
+      "name image price"
+    );
+    return sales;
+  } catch (error: any) {
+    console.error("Error fetching sales:", error.message);
+    throw error;
+  }
+};
 
-export const salesServices = { addSales, getSales };
+export const salesServices = { addSales, getSales, getSpecficUserSales };

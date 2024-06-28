@@ -8,13 +8,13 @@ const router = express.Router();
 
 router.get("/", verifyToken, salesController.getSales);
 
+router.get("/user/:userId", salesController.getSpecficUserSales);
+
 router.post(
   "/add-sale",
   verifyToken,
   validateRequest(saleValidation),
   salesController.addSales
 );
-
-
 
 export const salesRoutes = router;
